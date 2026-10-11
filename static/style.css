@@ -1,0 +1,138 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1d2530;
+  --muted: #5d6877;
+  --line: #d6dbe2;
+  --live: #0f8b6d;
+  --delayed: #d98a00;
+  --stale: #7b8794;
+  --bad: #b3261e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b2028;
+    --fg: #e8ecf1;
+    --muted: #a2adbb;
+    --line: #3a4350;
+    --live: #3ccf9f;
+    --delayed: #f0b429;
+    --stale: #98a4b3;
+    --bad: #ff8a80;
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--fg);
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+/* ---- control panel ---- */
+#panel {
+  position: absolute;
+  z-index: 1000;
+  top: 10px;
+  left: 54px;
+  width: 250px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+#panel h1 {
+  font-size: 15px;
+  margin: 0 0 8px;
+  font-weight: 650;
+}
+
+.counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 8px;
+}
+
+.counts span {
+  white-space: nowrap;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: -1px;
+  box-sizing: border-box;
+}
+
+.dot.live    { background: var(--live); }
+.dot.delayed { background: var(--delayed); }
+.dot.stale   { border: 2px solid var(--stale); background: transparent; }
+
+label.field {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 2px;
+  padding: 6px 8px;
+  font: inherit;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.check {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 4px 0 8px;
+}
+
+#status {
+  color: var(--muted);
+  font-size: 12.5px;
+  min-height: 1.2em;
+}
+
+#status.err {
+  color: var(--bad);
+}
+
+:focus-visible {
+  outline: 2px solid var(--live);
+  outline-offset: 2px;
+}
+
+/* ---- bus popup ---- */
+.popup b    { font-size: 14px; }
+.popup div  { margin-top: 2px; }
+.popup .sub { color: #555; }
+
+@media (max-width: 480px) {
+  #panel {
+    left: 10px;
+    top: 56px;
+    width: calc(100% - 20px);
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PMPML live buses</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="map"></div>
+
+  <section id="panel" aria-label="Bus map controls">
+    <h1>PMPML live buses</h1>
+    <div class="counts" aria-live="polite">
+      <span><i class="dot live"></i><span id="n-live">0</span> live</span>
+      <span><i class="dot delayed"></i><span id="n-delayed">0</span> delayed</span>
+      <span><i class="dot stale"></i><span id="n-stale">0</span> stale</span>
+    </div>
+    <label class="field">Route number
+      <input id="route" type="text" placeholder="e.g. 100" autocomplete="off">
+    </label>
+    <label class="check">
+      <input id="showStale" type="checkbox"> Include stale buses (up to 15 min old)
+    </label>
+    <div id="status">Connecting…</div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

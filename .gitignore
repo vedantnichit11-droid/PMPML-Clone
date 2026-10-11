@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+fleet_log*.csv
+data/gtfs/
+data/logs/
+pmpml-gtfs-main/
+*.zip
